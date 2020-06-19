@@ -1,0 +1,39 @@
+@import './_color-variables.scss';
+@import './_variables.scss';
+
+.collection {
+	background-color: $white;
+	border: none;
+	/* border-radius: 4px; */
+	/* padding-bottom: 10px; */
+	.collection-header {
+		border-bottom: 1px solid #eeeeee !important;
+		padding: 16px 20px 5px !important;
+		/* margin-bottom: 10px; */
+		background-color: $white !important;
+		h4 {
+			line-height: 24px;
+			margin: 0;
+			font-size: 14px;
+			color: $text-color;
+			font-family: $font-family;
+		}
+		/* &:after {
+			content: '';
+			border-bottom: 1px solid #eee;
+			width: 100%;
+			display: block;
+			padding-bottom: 8px;
+		} */
+	}
+	.collection-item {
+		height: 50px;
+		border-bottom: none;
+		background-color: $white;
+		display: flex !important;
+		align-items: center;
+		&:first-of-type {
+			margin-top: 5px !important;
+		}
+	}
+}

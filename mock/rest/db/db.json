@@ -1,0 +1,141 @@
+{
+	"calendar": [
+		{
+			"resources": [
+				{
+					"id": "756361",
+					"name": "Amanda Costa"
+				},
+				{
+					"id": "756362",
+					"name": "Arlindo Almeida"
+				},
+				{
+					"id": "756363",
+					"name": "Rubens da Silva"
+				},
+				{
+					"id": "756364",
+					"name": "Mirian Toledo"
+				},
+				{
+					"id": "756365",
+					"name": "Debora Martins"
+				},
+				{
+					"id": "756366",
+					"name": "José Augusto Fernando"
+				},
+				{
+					"id": "756367",
+					"name": "Júlia Eurico"
+				},
+				{
+					"id": "756368",
+					"name": "Thaís Slackiavsk"
+				},
+				{
+					"id": "756369",
+					"name": "Manuela Turt"
+				},
+				{
+					"id": "756370",
+					"name": "Fernando Medeiros"
+				}
+			],
+			"events": [
+				{
+					"id": 1,
+					"start": "2017-12-17 15:30:00",
+					"end": "2017-12-17 23:30:00",
+					"resourceId": "756361",
+					"title": "FC"
+				},
+				{
+					"id": 2,
+					"start": "2017-12-18 15:30:00",
+					"end": "2017-12-18 23:30:00",
+					"resourceId": "756362",
+					"title": "FF"
+				},
+				{
+					"id": 3,
+					"start": "2017-12-19 15:35:00",
+					"end": "2017-12-19 23:30:00",
+					"resourceId": "756363",
+					"title": "K"
+				},
+				{
+					"id": 4,
+					"start": "2017-12-20 15:40:00",
+					"end": "2017-12-20 23:30:00",
+					"resourceId": "756364",
+					"title": "FB"
+				},
+				{
+					"id": 5,
+					"start": "2017-12-21 15:40:00",
+					"end": "2017-12-21 23:30:00",
+					"resourceId": "756365",
+					"title": "FB"
+				},
+				{
+					"id": 6,
+					"start": "2017-12-22 15:40:00",
+					"end": "2017-12-22 23:30:00",
+					"resourceId": "756366",
+					"title": "FB"
+				},
+				{
+					"id": 7,
+					"start": "2017-12-17 15:40:00",
+					"end": "2017-12-17 23:30:00",
+					"resourceId": "756367",
+					"title": "FB"
+				},
+				{
+					"id": 8,
+					"start": "2017-12-18 15:40:00",
+					"end": "2017-12-18 23:30:00",
+					"resourceId": "756368",
+					"title": "FB"
+				},
+				{
+					"id": 9,
+					"start": "2017-12-19 15:40:00",
+					"end": "2017-12-19 23:30:00",
+					"resourceId": "756369",
+					"title": "FB"
+				},
+				{
+					"id": 10,
+					"start": "2017-12-20 15:40:00",
+					"end": "2017-12-20 23:30:00",
+					"resourceId": "756370",
+					"title": "FB"
+				}
+			]
+		}
+	],
+	"leaves": [
+		{
+			"id": "a123",
+			"name": "José Alvez",
+			"start": "2017-12-20 15:40:00",
+			"end": "2017-12-21 23:30:00"
+		},
+		{
+			"id": "b234",
+			"name": "Júlio Garcia",
+			"start": "2017-12-22 15:40:00",
+			"end": "2017-12-23 23:30:00"
+		},
+		{
+			"id": "c345",
+			"name": "isabele Teixeira",
+			"start": "2017-12-24 15:40:00",
+			"end": "2017-12-26 23:30:00"
+		}
+	],
+	"leaveslist": []
+}

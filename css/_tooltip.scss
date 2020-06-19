@@ -1,0 +1,11 @@
+@import './_color-variables.scss';
+
+.material-tooltip {
+	border-radius: 4px;
+	background-color: color('waterloo-darken1');
+	border: none;
+}
+
+.backdrop {
+	background-color: color('waterloo-darken1');
+}

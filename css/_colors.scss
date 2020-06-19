@@ -1,0 +1,51 @@
+@each $color, $color_value in $colors {
+	div.#{$color},
+	span.#{$color} {
+		background-color: $color_value;
+	}
+}
+
+@each $color, $color_value in $colors {
+	.btn.#{$color} {
+		background-color: $color_value !important;
+		&.bordered {
+			background-color: transparent !important;
+			border: $button-outlined-border solid $color_value !important;
+			color: $color_value !important;
+		}
+	}
+	.btn-flat.#{$color} {
+		background-color: transparent !important;
+		color: $color_value !important;
+	}
+
+	.btn.#{$color},
+	.btn.bordered.#{$color},
+	.btn-flat.#{$color},
+	.btn-floating.#{$color} {
+		/* &:hover {
+			background-color: lighten($color_value, 5%) !important;
+			border-color: lighten($color_value, 5%) !important;
+			color: $white !important;
+		}
+		&:focus {
+			background-color: darken($color_value, 5%) !important;
+			color: $white !important;
+		} */
+	}
+}
+
+@each $color, $color_value in $colors {
+	a.#{$color},
+	p.#{$color},
+	h1.#{$color},
+	h2.#{$color},
+	h3.#{$color},
+	h4.#{$color},
+	h5.#{$color},
+	h6.#{$color},
+	.text-#{$color} {
+		color: $color_value !important;
+		background-color: inherit !important;
+	}
+}

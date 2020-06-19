@@ -1,0 +1,15 @@
+{
+    "app": {
+        "notification_date": "Data da notificação",
+        "description": "Descrição",
+        "title": "Titulo",
+        "receive_notifications": "Receber notificações",
+        "add_a_description": "Adicione uma descrição",
+        "recurrence": "Recorrência",
+        "i_also_want_to_receive_this_notification_by_email": "Também quero receber esta notificação por e-mail",
+        "test": "teste",
+        "add_a_title": "Adicione um titulo",
+        "save": "Salvar",
+        "select_event_recurrence": "Selecione a recorrência para este evento"
+    }
+}

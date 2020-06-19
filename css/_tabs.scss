@@ -1,0 +1,41 @@
+@import './_color-variables.scss';
+@import './_variables.scss';
+
+.tabs {
+	.tab {
+		text-transform: none;
+		a {
+			background-color: transparent !important;
+			color: color(waterloo-base);
+			&.active {
+				color: color(primary-base);
+			}
+			&:hover {
+				color: color(primary-base);
+				text-decoration: none;
+			}
+			&:active {
+			}
+			&:focus {
+				background-color: color(primary-lighten5);
+				&.active {
+					background-color: color(primary-lighten5);
+				}
+			}
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			height: 2px;
+			left: 0px;
+			right: 0px;
+			background-color: #eee;
+			width: 100%;
+			z-index: 0;
+			bottom: 0;
+		}
+	}
+	.indicator {
+		background-color: color(primary-base);
+	}
+}

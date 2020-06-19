@@ -1,0 +1,105 @@
+$toast-height: 48px !default;
+$toast-color: color(info-lighten2) !default;
+$toast-text-color: #fff !default;
+$toast-action-color: #eeff41;
+
+#messagebar-container {
+	display: block;
+	position: fixed;
+	width: 100%;
+	top: 50px;
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+	-webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+		0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+		0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+.messagebar {
+	z-index: 9;
+	border-radius: 2px;
+	width: 100%;
+	margin-top: 1px;
+	position: relative;
+	max-width: 100%;
+	height: auto;
+	min-height: $toast-height;
+	line-height: 1.5em;
+	background-color: $toast-color;
+	padding: 10px 25px;
+	font-size: 14px;
+	font-weight: 300;
+	color: $toast-text-color;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	cursor: default;
+	&::before {
+		content: '\e88e' !important;
+		color: #fff;
+		margin: 0 5px;
+		font-family: 'Material Icons' !important;
+	}
+	&.info {
+		background: color('info-lighten2') !important;
+		&::before {
+			content: '\e88e' !important;
+		}
+	}
+	&.danger,
+	&.error {
+		background: color('error-lighten2') !important;
+		&::before {
+			content: '\e5c9' !important;
+		}
+	}
+	&.warning {
+		background: color('warning-lighten1') !important;
+		&::before {
+			content: '\e002' !important;
+		}
+	}
+	&.success {
+		background: color('green-base') !important;
+		&::before {
+			content: '\e86c' !important;
+		}
+	}
+
+	.messagebar-action {
+		color: $toast-action-color;
+		font-weight: 500;
+		margin-right: -25px;
+		margin-left: 3rem;
+	}
+
+	&.rounded {
+		border-radius: 24px;
+	}
+
+	&::before {
+	}
+
+	.close {
+		float: right;
+		right: 0;
+		top: 10%;
+		height: 30px;
+		width: 30px;
+		position: absolute;
+		margin: 10px;
+		&::before {
+			font-size: 22px;
+			content: '\e5c9' !important;
+			color: #fff;
+			font-family: 'Material Icons' !important;
+			opacity: 0.5;
+		}
+	}
+}

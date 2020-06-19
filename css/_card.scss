@@ -1,0 +1,33 @@
+@import './_color-variables.scss';
+@import './_variables.scss';
+
+.card {
+	display: inline-block;
+	width: 100%;
+	background-color: $white;
+	@extend %shadow;
+	.card-content {
+		padding: 16px;
+		.card-title {
+			height: 24px;
+			line-height: 17px;
+			font-size: 14px;
+			color: #9196ac;
+			margin-top: 4px;
+			margin-bottom: 16px;
+			&:after {
+				content: '';
+				border-bottom: 1px solid #eee;
+				width: 100%;
+				display: block;
+				padding-bottom: 10px;
+			}
+			i {
+				line-height: 17px;
+			}
+		}
+	}
+	.card-action {
+		padding: 16px;
+	}
+}

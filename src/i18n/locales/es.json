@@ -1,0 +1,16 @@
+{
+    "save": "",
+    "app": {
+        "save": "",
+        "title": "",
+        "add_a_title": "",
+        "description": "",
+        "add_a_description": "",
+        "notification_date": "",
+        "recurrence": "",
+        "select_event_recurrence": "",
+        "i_also_want_to_receive_this_notification_by_email": "",
+        "receive_notifications": ""
+    },
+    "i_also_want_to_receive_this_notification_by_email": ""
+}

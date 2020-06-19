@@ -1,0 +1,67 @@
+@each $color, $color_value in $colors {
+  .segment.#{$color} {
+     border-left: 5px solid $color_value !important;
+  }
+}
+
+/* 
+
+.segment {
+ 
+  @mixin segment-color($color) {
+    border-left: 5px solid $color !important;
+  }
+
+  .red {
+    @include segment-color($red);
+  }
+
+  .orange {
+    @include segment-color($orange);
+  }
+
+  .yellow {
+    @include segment-color($yellow);
+  }
+
+  .olive {
+    @include segment-color($olive);
+  }
+
+  .green {
+    @include segment-color($green);
+  }
+
+  .teal {
+    @include segment-color($teal);
+  }
+
+  .blue {
+    @include segment-color($blue);
+  }
+
+  .violet {
+    @include segment-color($violet);
+  }
+
+  .purple {
+    @include segment-color($purple);
+  }
+
+  .pink {
+    @include segment-color($pink);
+  }
+
+  .brown {
+    @include segment-color($brown);
+  }
+
+  .gray {
+    @include segment-color($gray);
+  }
+
+  .black {
+    @include segment-color($black);
+  }
+}
+ */
