@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"start": "NODE_ENV=production HTTPS=false PORT=${PORT} react-scripts start",
+		"start": "NODE_ENV=production HTTPS=false react-scripts start",
 		"start-dev": "NODE_ENV=development HTTPS=true PORT=3003 react-scripts start",
 		"build": "PUBLIC_URL=${PUBLIC_URL} ./node_modules/.bin/react-scripts --max_old_space_size=4096 build",
 		"build-frontend": "PUBLIC_URL=${PUBLIC_URL} ./node_modules/.bin/react-scripts --max_old_space_size=4096 build",
