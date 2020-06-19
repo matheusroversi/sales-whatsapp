@@ -32,9 +32,9 @@ const Util = ($ => {
 			delegateType: TRANSITION_END,
 			handle(event) {
 				if ($(event.target).is(this)) {
-					return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
+					return event.handleObj.handler.apply(this, arguments) 
 				}
-				return undefined // eslint-disable-line no-undefined
+				return undefined 
 			},
 		}
 	}
@@ -71,7 +71,6 @@ const Util = ($ => {
 
 		getUID(prefix) {
 			do {
-				// eslint-disable-next-line no-bitwise
 				prefix += ~~(Math.random() * MAX_UID) // "~~" acts like a faster Math.floor() here
 			} while (document.getElementById(prefix))
 			return prefix

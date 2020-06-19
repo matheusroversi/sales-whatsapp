@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/styles'
 import { connect } from 'react-redux'
 

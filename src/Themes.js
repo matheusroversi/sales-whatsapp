@@ -34,7 +34,6 @@ export const isDarkTheme = () => {
 	let theme
 	try {
 		theme = storage.getTheme()
-		// eslint-disable-next-line no-empty
 	} catch (e) {}
 
 	if (!theme) {

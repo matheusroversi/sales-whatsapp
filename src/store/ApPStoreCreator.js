@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
 import AppReducerCreator from '../reducers/AppReducerCreator'
-/* eslint-env browser*/
 
 export class StoreCreator {
 	/**

@@ -1,4 +1,3 @@
-/* eslint no-fallthrough: off */
 import dateMath from 'date-arithmetic'
 import moment from 'moment'
 import 'moment/locale/pt-br'

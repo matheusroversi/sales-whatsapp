@@ -1,4 +1,3 @@
-/* eslint-disable no-undef,no-restricted-globals */
 import Pusher from 'pusher-js/dist/web/pusher'
 // importScripts('pusher-js/dist/worker/pusher.worker.js')
 
