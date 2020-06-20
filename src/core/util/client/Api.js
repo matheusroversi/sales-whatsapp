@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const SERVER_ADDRESS =
-  process.env.API_SERVER_ADDRESS || "http://localhost:8080";
+const SERVER_ADDRESS = "https://numenu-backend.herokuapp.com";
 
 export default axios.create({
   baseURL: SERVER_ADDRESS,

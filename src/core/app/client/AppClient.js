@@ -17,7 +17,7 @@ export default {
     return Api.get(`${SERVER_ADDRESS}/categories`);
   },
   async getProducts() {
-    return Api.get(`${SERVER_ADDRESS}/products`);
+    return Api.get(`/products`);
     /* return await new Promise((resolve, reject) => {
 			resolve(products)
 		}) */
