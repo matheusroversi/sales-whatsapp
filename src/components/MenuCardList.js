@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     margin: "12px",
-    // backgroundColor: '#dcf8c6',
     backgroundColor: "rgb(240, 240, 240)",
   },
   barGreen: {
@@ -42,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonCopy: {
     marginTop: "16px",
-    /* backgroundColor: '#35cd96',
-		color: '#fff', */
   },
   textOrder: {
     width: "50px",

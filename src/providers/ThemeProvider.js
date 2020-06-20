@@ -8,7 +8,7 @@ import { selectTheme } from '../core/app/selectors/AppSelectors'
 import Themes from '../Themes'
 
 const ThemeProvider = ({ theme, children }) => (
-	<MuiThemeProvider theme={Themes[theme]}>
+	<MuiThemeProvider theme={Themes['light']}>
 		<CssBaseline />
 		{children}
 	</MuiThemeProvider>
