@@ -1,10 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-
-import styles from "./index.module.css";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -43,14 +39,3 @@ const GoogleButton = (props) => {
 };
 
 export default GoogleButton;
-/* const GoogleButton = () => (
-  <a
-    role="button"
-    aria-label="Logar com Google"
-    className={clsx(styles.GoogleButton)}
-    tabIndex={0}
-    href="http://localhost:8080/auth/google"
-  >
-    Entrar com Google
-  </a>
-); */

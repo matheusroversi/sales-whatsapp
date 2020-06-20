@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const SERVER_ADDRESS = "https://numenu-backend.herokuapp.com";
+import { REACT_APP_API_ADDRESS } from "../../../helpers/environment";
 
 export default axios.create({
-  baseURL: SERVER_ADDRESS,
+  baseURL: REACT_APP_API_ADDRESS,
   withCredentials: true,
   header: { "Access-Control-Allow-Origin": "*" },
 });

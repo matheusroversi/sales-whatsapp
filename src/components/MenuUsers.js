@@ -16,8 +16,7 @@ import Avatar from "@material-ui/core/Avatar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 
-const SERVER_ADDRESS =
-  process.env.API_SERVER_ADDRESS || "http://localhost:8080";
+import { REACT_APP_API_ADDRESS } from "../helpers/environment";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -92,7 +91,7 @@ const MenuUsers = (props) => {
           <ListItem button key="">
             <GoogleButton
               handleClick={() => {
-                document.location = `https://numenu-backend.herokuapp.com/auth/google`;
+                document.location = `${REACT_APP_API_ADDRESS}/auth/google`;
               }}
             />
           </ListItem>
@@ -132,24 +131,13 @@ const MenuUsers = (props) => {
             )}
           </List>
           <Divider />
-          {/* <List>
-            {logged && (
-              <ListItem button key="logout">
-                <ListItemIcon>
-                  <LocationOnIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Endereço"} />
-              </ListItem>
-            )}
-          </List>
-          <Divider /> */}
           <List>
             {logged && (
               <ListItem
                 button
                 key="logout"
                 onClick={() =>
-                  (document.location = `https://numenu-backend.herokuapp.com/auth/logout`)
+                  (document.location = `${REACT_APP_API_ADDRESS}/auth/logout`)
                 }
               >
                 <ListItemIcon>

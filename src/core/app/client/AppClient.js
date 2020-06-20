@@ -16,8 +16,5 @@ export default {
   },
   async getProducts() {
     return Api.get(`/products`);
-    /* return await new Promise((resolve, reject) => {
-			resolve(products)
-		}) */
   },
 };

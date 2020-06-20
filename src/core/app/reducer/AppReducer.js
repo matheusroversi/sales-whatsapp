@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
     }
     case ACTION_TYPES.REQUEST_USER: {
       const user = payload;
-      console.log('reducer',{payload, user})
       /* localStorage.setItem(
 				  'me',
 				  JSON.stringify({ company: data.companyId, email: data.user.email })
@@ -89,7 +88,6 @@ export default (state = initialState, action) => {
       };
     case ACTION_TYPES.REQUEST_CATEGORIES:
       let categories = payload;
-      console.log(categories, state);
       return {
         ...state,
         categories: categories,
