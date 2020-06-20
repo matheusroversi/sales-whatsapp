@@ -1,20 +1,18 @@
 import Api from "../../util/client/Api";
 
-const SERVER_ADDRESS =
-  process.env.API_SERVER_ADDRESS || "http://localhost:8080";
 
 export default {
   async getLogin() {
-    Api.get(`${SERVER_ADDRESS}/auth/google`);
+    Api.get(`/auth/google`);
   },
   async getMe() {
-    return Api.get(`${SERVER_ADDRESS}/me`);
+    return Api.get(`/me`);
   },
   async getUser() {
-    return Api.get(`${SERVER_ADDRESS}/user`, { withCredentials: true });
+    return Api.get(`/user`, { withCredentials: true });
   },
   async getCategories() {
-    return Api.get(`${SERVER_ADDRESS}/categories`);
+    return Api.get(`/categories`);
   },
   async getProducts() {
     return Api.get(`/products`);
