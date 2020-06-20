@@ -26,8 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const GoogleButton = (props) => {
-  let { href } = props;
-  console.log(href);
+  let { handleClick } = props;
   const classes = useStyles();
   return (
     <Button
@@ -36,9 +35,7 @@ const GoogleButton = (props) => {
       }
       variant="contained"
       className={classes.button}
-      onClick={() => {
-        document.location = `${href}`;
-      }}
+      onClick={handleClick}
     >
       Logar com Google
     </Button>
