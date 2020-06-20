@@ -149,7 +149,7 @@ const MenuUsers = (props) => {
                 button
                 key="logout"
                 onClick={() =>
-                  (document.location = `${SERVER_ADDRESS}/auth/logout`)
+                  (document.location = `https://numenu-backend.herokuapp.com/auth/logout`)
                 }
               >
                 <ListItemIcon>
