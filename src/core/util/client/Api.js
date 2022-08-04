@@ -6,4 +6,7 @@ export default axios.create({
   baseURL: REACT_APP_API_ADDRESS,
   withCredentials: true,
   header: { "Access-Control-Allow-Origin": "*" },
+  headers: {
+    companyId: "001"
+  }
 });

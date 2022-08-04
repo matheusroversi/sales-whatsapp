@@ -1,6 +1,5 @@
 import Api from "../../util/client/Api";
 
-
 export default {
   async getLogin() {
     Api.get(`/auth/google`);
@@ -17,4 +16,7 @@ export default {
   async getProducts() {
     return Api.get(`/products`);
   },
+  async saveProducts(object) {
+    return Api.put(`/products`, object);
+  }
 };
