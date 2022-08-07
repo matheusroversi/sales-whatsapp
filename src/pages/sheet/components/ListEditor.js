@@ -26,7 +26,7 @@ const ListEditor = ({
   const [checked, setChecked] = React.useState(row.categories || []);
 
   const handleToggle = value => () => {
-    const currentIndex = checked.indexOf(value);
+    const currentIndex = checked.findIndex(item => item.id === value.id);
     const newChecked = [...checked];
 
     if (currentIndex === -1) {

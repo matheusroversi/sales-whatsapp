@@ -5,7 +5,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    padding: 16
   },
   actions: {}
 }));

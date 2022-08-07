@@ -18,5 +18,8 @@ export default {
   },
   async saveProducts(object) {
     return Api.put(`/products`, object);
+  },
+  async deleteProduct(id) {
+    return Api.delete(`/products/${id}`);
   }
 };

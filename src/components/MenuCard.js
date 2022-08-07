@@ -49,9 +49,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MenuCard = props => {
+const MenuCard = ({ products }) => {
   const classes = useStyles();
-  let { products } = props;
 
   return (
     <div className={classes.root}>
@@ -72,7 +71,11 @@ const MenuCard = props => {
                   <div
                     className={classes.img}
                     style={{
-                      backgroundImage: `url("${product.images[0].link}")`,
+                      backgroundImage: `url("${
+                        product.images[0]?.url
+                          ? product.images[0].url
+                          : "https://www.swift-inc.com/public/images/images-empty.png"
+                      }")`,
                       backgroundSize: "cover"
                     }}
                   ></div>
@@ -82,7 +85,7 @@ const MenuCard = props => {
                   <Grid item xs={12} container spacing={0}>
                     <Grid item xs={8}>
                       <Typography className={classes.description}>
-                        {product.description}
+                        {product.name}
                       </Typography>
                     </Grid>
                     <Grid

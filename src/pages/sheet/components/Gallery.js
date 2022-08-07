@@ -1,11 +1,10 @@
 import React from "react";
+import clsx from "clsx";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    justifyContent: "space-around",
     height: "100%",
     alignItems: "center"
   },
@@ -23,8 +22,10 @@ const useStyles = makeStyles(theme => ({
 const Gallery = ({ images = [] }) => {
   const styles = useStyles();
 
+  images = images.filter ? images?.filter(item => !!item.url) : [];
+
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, "images-gallery")}>
       {images.map((image, key) => (
         <div
           key={key}

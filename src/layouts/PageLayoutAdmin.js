@@ -3,20 +3,19 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "./AppBar";
-import Drawer, { drawerWidth, drawerHeader } from "./Drawer";
+import AdminBar from "../components/AdminBar";
+import Drawer, { drawerWidth, drawerHeader } from "../components/Drawer";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import ScrollTop from "../components/ScrollTop";
-import MenuUsers from "./MenuUsers";
-import MenuListCard from "./MenuCardList";
+import MenuUsers from "../components/MenuUsers";
+import MenuListCard from "../components/MenuCardList";
 
 const useStyles = makeStyles(theme => ({
   main: {
-    marginTop: 90,
-    padding: 16
+    marginTop: 90
   },
   scrolltop: {
     position: "fixed",
@@ -54,7 +53,7 @@ const PageLayout = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar
+      <AdminBar
         id="back-to-top-anchor"
         isLeftDrawerOpen={state["left"]}
         isRightDrawerOpen={state["right"]}
@@ -62,7 +61,7 @@ const PageLayout = props => {
         toggleDrawer={toggleDrawer}
       >
         {renderAppBarMenu()}
-      </AppBar>
+      </AdminBar>
       {["left", "right"].map(anchor => (
         <div key={anchor}>
           <SwipeableDrawer

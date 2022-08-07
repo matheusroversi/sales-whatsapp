@@ -17,6 +17,7 @@ import Gallery from "./components/Gallery";
 import NumberFormat from "./components/NumberFormat";
 import { InputText, Container } from "./SheetPage.styles";
 import ListEditor from "./components/ListEditor";
+import GalleryEditor from "./components/GalleryEditor";
 import HeaderPage from "../../components/HeaderPage";
 import Button from "@material-ui/core/Button";
 import {
@@ -26,11 +27,13 @@ import {
   Delete,
   FileCopy
 } from "@material-ui/icons";
+import { FilterAlt, FilterAltOff } from "@mui/icons-material";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Badge from "@mui/material/Badge";
 import { useProducts } from "../../hooks/useProducts";
 import { css } from "styled-components";
 import { IconButton } from "@material-ui/core";
+import { withSnackbar } from "notistack";
 
 const ptBR = {
   locale: "pt-br",
@@ -53,7 +56,8 @@ const filterClassname = css`
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(0)
+    padding: theme.spacing(1),
+    marginTop: 90
   },
   menuPage: {
     marginTop: "64px"
@@ -75,13 +79,13 @@ function getComparator(sortColumn) {
         return a[sortColumn] > b[sortColumn];
       };
     /* case 'name':
-			return (a, b) => {
-				return a[sortColumn].localeCompare(b[sortColumn]);
-			};
-		case 'available':
-			return (a, b) => {
-				return a[sortColumn] === b[sortColumn] ? 0 : a[sortColumn] ? 1 : -1;
-			}; */
+				return (a, b) => {
+					return a[sortColumn].localeCompare(b[sortColumn]);
+				};
+			case 'available':
+				return (a, b) => {
+					return a[sortColumn] === b[sortColumn] ? 0 : a[sortColumn] ? 1 : -1;
+				}; */
     case "name":
       return (a, b) => {
         return a[sortColumn] > b[sortColumn];
@@ -128,12 +132,13 @@ function SheetPage({
   products,
   categories,
   requestCategories,
-  requestProducts
+  requestProducts,
+  enqueueSnackbar
 }) {
   const classes = useStyles();
   const gridRef = useRef(null);
 
-  const { saveProducts } = useProducts();
+  const { saveProducts, deleteProduct } = useProducts();
 
   const [rows, setRows] = useState([]);
   const [selectedRows, setSelectedRows] = useState(() => new Set());
@@ -151,20 +156,39 @@ function SheetPage({
     console.log(gridRef);
   }, [rows]);
 
+  const loadData = async () => {
+    await requestProducts();
+    await requestCategories();
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const deleteRow = async row => {
+    if (!row.id) {
+      const newRows = rows.filter(item => !!item.id);
+      return setRows(newRows);
+    }
+
+    try {
+      await deleteProduct(row.id);
+      await requestProducts();
+      enqueueSnackbar("Produto removido com sucesso", { variant: "success" });
+    } catch (error) {
+      enqueueSnackbar("Ocorreu um erro ao remover o produto", {
+        variant: "error"
+      });
+    }
+  };
+
   const columns = [
     {
       key: "id",
       name: "ID",
-      width: 200,
+      width: 50,
       resizable: true,
-      sortable: true,
-      summaryFormatter: props => {
-        return (
-          <div key={`${props.column.key}-${props.row.id}`}>
-            <strong>Total</strong>: {rows.length} produtos
-          </div>
-        );
-      }
+      sortable: true
     },
     {
       key: "name",
@@ -174,24 +198,34 @@ function SheetPage({
       sortable: true,
       editor: TextEditor,
       headerCellClass: filters.enabled ? filterColumnClassName : "",
-      headerRenderer: p => (
-        <FilterRenderer {...p}>
-          {({ filters, ...rest }) => (
-            <input
-              {...rest}
-              className={filterClassname}
-              value={filters.name}
-              onChange={e =>
-                setFilters({
-                  ...filters,
-                  name: e.target.value
-                })
-              }
-              onKeyDown={inputStopPropagation}
-            />
-          )}
-        </FilterRenderer>
-      )
+      headerRenderer: p => {
+        if (filters.disabled) return false;
+        return (
+          <FilterRenderer {...p}>
+            {({ filters, ...rest }) => (
+              <input
+                {...rest}
+                className={filterClassname}
+                value={filters.name}
+                onChange={e =>
+                  setFilters({
+                    ...filters,
+                    name: e.target.value
+                  })
+                }
+                onKeyDown={inputStopPropagation}
+              />
+            )}
+          </FilterRenderer>
+        );
+      },
+      summaryFormatter: props => {
+        return (
+          <div key={`${props.column.key}-${props.row.id}`}>
+            <strong>Total</strong>: {rows.length} produtos
+          </div>
+        );
+      }
     },
     {
       key: "categories",
@@ -257,9 +291,23 @@ function SheetPage({
       name: "Imagens",
       resizable: true,
       sortable: false,
+      width: 200,
       formatter: ({ row }) => {
         return <Gallery images={row.images} />;
-      }
+      },
+      editor: props => {
+        return (
+          <GalleryEditor
+            {...props}
+            setRows={setRows}
+            rows={rows}
+            changes={changes}
+            setChanges={setChanges}
+            gridRef={gridRef}
+          />
+        );
+      },
+      onPaste: x => console.log(x)
     },
     {
       key: "price",
@@ -319,30 +367,23 @@ function SheetPage({
       width: 150,
       resizable: false,
       sortable: false,
-      formatter: ({ row, column, onRowChange }) => {
+      formatter: props => {
+        console.log(props);
+        const { row, column, onRowChange } = props;
         return (
           <ButtonGroup variant="circle" aria-label="outlined button group">
-            <IconButton>
+            <IconButton onClick={() => newRow(row)}>
               <FileCopy color={"primary"} />
             </IconButton>
 
             <IconButton>
-              <Delete color={"primary"} />
+              <Delete onClick={() => deleteRow(row)} color={"primary"} />
             </IconButton>
           </ButtonGroup>
         );
       }
     }
   ];
-
-  const loadData = async () => {
-    await requestProducts();
-    await requestCategories();
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
 
   useEffect(() => {
     parseDataProducts();
@@ -398,14 +439,38 @@ function SheetPage({
     }
   }
 
+  function validateForm(products) {
+    if (products.some(item => !item.id && !item.name)) {
+      enqueueSnackbar("Hey, tem nome de produto em branco!", {
+        variant: "warning"
+      });
+      return false;
+    }
+
+    return true;
+  }
+
   const handleSave = async () => {
-    const productsToUpdate = rows.filter(item => changes.includes(item.id));
+    const productsToUpdate = rows.filter(
+      item => changes.includes(item.id) || !item.id
+    );
+
+    if (!validateForm(productsToUpdate)) {
+      return false;
+    }
 
     try {
       const result = await saveProducts(productsToUpdate);
+      console.log("salvo", result);
+
       setChanges([]);
+      enqueueSnackbar("Produtos atualizados", { variant: "success" });
+      requestProducts();
     } catch (error) {
       console.log("ocorreu um erro ao tentar salvar");
+      enqueueSnackbar("Oou! Ocorreu um erro ao tentar salvar", {
+        variant: "error"
+      });
     }
   };
 
@@ -484,42 +549,56 @@ function SheetPage({
     }
   }
 
+  const newRow = object => {
+    let _row = [];
+
+    object
+      ? _row.push({ ...object, id: undefined })
+      : _row.push({
+          name: "",
+          categories: [],
+          images: [],
+          price: 0,
+          destaque: undefined
+        });
+
+    setRows([..._row, ...rows]);
+
+    setTimeout(() => {
+      gridRef.current.scrollToRow(0);
+      gridRef.current.selectCell({ rowIdx: 0, idx: 1 }, true);
+    }, 100);
+  };
+
+  const totalChanges = () => {
+    const newRows = rows.filter(item => !item.id).length || 0;
+
+    return changes.length + newRows;
+  };
+
   return (
-    <Container key={`teste-${rows.length}`}>
+    <Container>
       <HeaderPage
         title="Produtos"
         actions={
           <ButtonGroup variant="outlined" aria-label="outlined button group">
             <Button onClick={toggleFilters}>
-              <FilterList />
+              {!filters.enabled ? (
+                <FilterAlt color="primary" />
+              ) : (
+                <FilterAltOff color="primary" />
+              )}
             </Button>
-            <Button disabled={changes.length === 0}>
+            <Button disabled={totalChanges() === 0} onClick={handleSave}>
               <Badge
-                badgeContent={changes?.length || undefined}
+                badgeContent={totalChanges() || undefined}
                 color={"warning"}
               >
-                <Save
-                  onClick={handleSave}
-                  color={changes.length === 0 ? "inherit" : "primary"}
-                />
+                <Save color={totalChanges() === 0 ? "inherit" : "primary"} />
               </Badge>
             </Button>
 
-            <Button
-              onClick={() => {
-                const _rows = rows;
-                _rows.unshift({
-                  name: "teste",
-                  categories: [],
-                  images: [],
-                  price: 0,
-                  destaque: undefined
-                });
-                setRows(_rows);
-                gridRef.current.scrollToRow(0);
-                gridRef.current.selectCell({ rowIdx: 0, idx: 1 }, true);
-              }}
-            >
+            <Button onClick={() => newRow()}>
               <AddCircleOutline color={"primary"} />
             </Button>
           </ButtonGroup>
@@ -527,6 +606,7 @@ function SheetPage({
       />
       <FilterContext.Provider value={filters}>
         <DataGrid
+          key={`teste-${rows.length}`}
           ref={gridRef}
           style={{
             height: "calc(100vh - 202px)"
@@ -537,7 +617,7 @@ function SheetPage({
           rowKeyGetter={rowKeyGetter}
           onRowsChange={(rows, row) => {
             const index = row.indexes[0];
-            if (!changes.includes(rows[index].id))
+            if (rows[index].id && !changes.includes(rows[index].id))
               setChanges([...changes, rows[index].id]);
             setRows(rows);
           }}
@@ -548,7 +628,7 @@ function SheetPage({
           selectedRows={selectedRows}
           onSelectedRowsChange={setSelectedRows}
           rowClass={row => {
-            return changes.includes(row.id) ? "hightlight" : "";
+            return changes.includes(row.id) || !row.id ? "hightlight" : "";
           }}
           summaryRows={summaryRows}
           defaultColumnOptions={{
@@ -558,6 +638,7 @@ function SheetPage({
           sortable
           sortColumns={sortColumns}
           onSortColumnsChange={setSortColumns}
+          past
           // direction={direction}
         />
       </FilterContext.Provider>
@@ -570,6 +651,7 @@ const mapStateToProps = state => {
     ...state.AppReducer
   };
 };
+
 export default connect(mapStateToProps, {
   ...AppActions
-})(SheetPage);
+})(withSnackbar(SheetPage));

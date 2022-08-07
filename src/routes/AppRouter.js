@@ -2,9 +2,12 @@ import React, { Component, Fragment } from "react";
 import { Redirect, Route, Switch } from "react-router";
 import { AppActions } from "../core";
 import { connect } from "react-redux";
-import { MenuPage, CardPage, SheetPage } from "../pages";
+import { MenuPage, CardPage, SheetPage, OutdoorPage } from "../pages";
 import { ConnectedRouter } from "connected-react-router";
 import MenuAppBar from "../containers/MenuAppBar";
+import DefaultLayoutRoute from "./DefaultLayoutRoute";
+import AdminLayoutRoute from "./AdminLayoutRoute";
+import OutdoorLayoutRoute from "./OutdoorLayoutRoute";
 
 const routesEntity = [
   {
@@ -24,8 +27,9 @@ class AppRouter extends Component {
         <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/card" component={CardPage} />
-            <Route exact path="/menu" component={MenuPage} />
-            <Route exact path="/sheet" component={SheetPage} />
+            <DefaultLayoutRoute exact path="/menu" component={MenuPage} />
+            <AdminLayoutRoute exact path="/sheet" component={SheetPage} />
+            <OutdoorLayoutRoute exact path="/outdoor" component={OutdoorPage} />
             <Redirect to={"/menu"} />
           </Switch>
         </ConnectedRouter>
