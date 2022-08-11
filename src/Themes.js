@@ -1,5 +1,5 @@
 import { createTheme } from "@material-ui/core/styles";
-import { pink, blue } from "@material-ui/core/colors";
+import { pink, blue, red, black, white } from "@material-ui/core/colors";
 
 import storage from "./core/app/storage/AppStorage";
 
@@ -18,13 +18,15 @@ export const toggleTheme = currentTheme => {
 
 export const getDefaultTheme = () => {
   const { dark, light } = THEMES;
-  try {
+  /* try {
     return window.matchMedia("(prefers-color-scheme: dark)").match
       ? dark
       : light;
   } catch (e) {
     return light;
-  }
+  } */
+
+  return dark;
 };
 
 /**
@@ -46,14 +48,21 @@ export const isDarkTheme = () => {
 export default {
   [THEMES.light]: createTheme({
     palette: {
-      primary: blue,
-      secondary: pink
+      primary: {
+        // light: will be calculated from palette.primary.main,
+        main: "#000000"
+        // dark: will be calculated from palette.primary.main,
+        // contrastText: will be calculated to contrast with palette.primary.main
+      },
+      secondary: {
+        main: "#da641f"
+      }
     }
   }),
   [THEMES.dark]: createTheme({
     palette: {
-      primary: blue,
-      secondary: pink,
+      primary: { main: "#000000" },
+      secondary: { main: "#ffffff" },
       type: "dark"
     }
   })

@@ -23,6 +23,7 @@
   "dependencies": {
     "@emotion/styled": "^11.9.3",
     "@inovua/reactdatagrid-community": "^4.20.3",
+    "@lottiefiles/lottie-player": "^1.5.7",
     "@material-ui/core": "^4.3.2",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/pickers": "^3.2.2",
@@ -73,6 +74,7 @@
     "react-scripts": "4.0.3",
     "react-select": "^5.4.0",
     "react-uid": "^2.2.0",
+    "react-virtualized-auto-sizer": "^1.0.6",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
     "redux-define": "^1.1.1",

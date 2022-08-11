@@ -60,8 +60,8 @@ const MenuCard = ({ products }) => {
             key={key}
             item
             xs={12}
-            sm={6}
-            md={4}
+            sm={12}
+            md={12}
             className={classes.menuItem}
           >
             <Paper className={classes.paper}>

@@ -23,7 +23,9 @@ const GalleryEditor = ({
   const [url, setUrl] = useState("");
 
   useEffect(() => {
-    setImages(row.images.filter(item => item.url));
+    if (row.images?.filter) {
+      setImages(row.images.filter(item => item.url));
+    }
   }, [row]);
 
   const handleToggle = value => () => {

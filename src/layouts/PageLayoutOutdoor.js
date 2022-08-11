@@ -19,13 +19,7 @@ const PageLayout = props => {
 
   const { children } = props;
 
-  return (
-    <div className={classes.root}>
-      <main className={clsx(classes.main)}>
-        <div className={classes.container}>{children}</div>
-      </main>
-    </div>
-  );
+  return <>{children}</>;
 };
 
 PageLayout.propTypes = {

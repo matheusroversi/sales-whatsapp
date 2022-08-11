@@ -6,6 +6,14 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { makeStyles } from "@material-ui/core/styles";
 import MenuCard from "../../components/MenuCard";
+import ScrollSpyTabs from "../../components/ScrollSpyTabs";
+import {
+  Content,
+  CategoryLabel,
+  Borda,
+  ImageStore,
+  Section
+} from "./MenuPage.styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,10 +21,6 @@ const useStyles = makeStyles(theme => ({
   },
   menuPage: {
     marginTop: "64px"
-  },
-  tab: {
-    backgroundColor: theme.palette.primary.main,
-    color: "#fff"
   }
 }));
 
@@ -32,6 +36,7 @@ const MenuPage = props => {
     requestProducts
   } = props;
   const [value, setValue] = useState(0);
+  const [data, setData] = useState([]);
   const classes = useStyles();
 
   useEffect(() => {
@@ -49,63 +54,40 @@ const MenuPage = props => {
 
   if (!categories) return "";
 
-  return (
-    <div className={classes.menuPage}>
-      <Tabs
-        className={classes.tab}
-        value={value}
-        onChange={handleChange}
-        aria-label="simple tabs example"
-      >
-        {categories.map((category, key) => (
-          <Tab key={key} label={category.label} {...a11yProps(key)} />
-        ))}
-      </Tabs>
+  useEffect(() => {
+    if (products.length > 0 && categories.length > 0) setData(parseData());
+  }, [products, categories]);
 
-      {categories.map((category, key) => (
-        <TabPanel
-          key={key}
-          value={value}
-          index={key}
-          categoryId={categories[value].id}
-          products={products.filter(item =>
-            item.categories.map(c => c.id).includes(categories[value].id)
-          )}
-          card={card}
-          searchText={searchText}
-        ></TabPanel>
-      ))}
-    </div>
-  );
-};
-
-function a11yProps(id) {
-  return {
-    id: id,
-    "aria-controls": id
-  };
-}
-
-const TabPanel = props => {
-  let { card, categoryId, products, value, index, searchText } = props;
-
-  if (!!searchText && products.length > 0) {
-    products = products.filter(value => {
-      return value.description.toSearch().indexOf(searchText.toSearch()) > 0;
+  const parseData = () => {
+    let data = [];
+    categories.map((category, key) => {
+      data.push({
+        text: category.label,
+        component: (
+          <Section>
+            <CategoryLabel>{category.label}</CategoryLabel>
+            <MenuCard
+              categoryId={category.id}
+              products={products.filter(item =>
+                item.categories.map(c => c.id).includes(categories[value].id)
+              )}
+              card={card}
+            />
+          </Section>
+        )
+      });
     });
-  }
+    return data;
+  };
+
+  if (data.length === 0) return false;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-    >
-      {value === index && (
-        <MenuCard categoryId={categoryId} products={products} card={card} />
-      )}
-    </div>
+    <Content>
+      <ImageStore url="https://www.saboravida.com.br/wp-content/uploads/2020/12/burger-king-inaugura-em-sp-restaurante-idealizado-pelos-consumidores-1.jpg" />
+      <Borda />
+      <ScrollSpyTabs tabsInScroll={data} />
+    </Content>
   );
 };
 
