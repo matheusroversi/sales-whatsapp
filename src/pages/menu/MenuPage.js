@@ -33,11 +33,14 @@ const MenuPage = props => {
     me,
     user,
     requestCategories,
-    requestProducts
+    requestProducts,
+    theme
   } = props;
   const [value, setValue] = useState(0);
   const [data, setData] = useState([]);
   const classes = useStyles();
+
+  console.log(props);
 
   useEffect(() => {
     if (categories.length === 0) {
@@ -85,7 +88,7 @@ const MenuPage = props => {
   return (
     <Content>
       <ImageStore url="https://www.saboravida.com.br/wp-content/uploads/2020/12/burger-king-inaugura-em-sp-restaurante-idealizado-pelos-consumidores-1.jpg" />
-      <Borda />
+      <Borda theme={theme} />
       <ScrollSpyTabs tabsInScroll={data} />
     </Content>
   );

@@ -21,12 +21,16 @@ export const Content = styled.div`
 `;
 
 export const Borda = styled.div`
-  width: 100%;
-  height: 25px;
-  background: white;
-  position: absolute;
-  margin-top: -15px;
-  border-radius: 15px;
+  ${({ theme }) => {
+    return css`
+      width: 100%;
+      height: 25px;
+      background-color: ${Theme[theme].palette.background.default};
+      position: absolute;
+      margin-top: -15px;
+      border-radius: 15px;
+    `;
+  }}
 `;
 
 export const ImageStore = styled.div`

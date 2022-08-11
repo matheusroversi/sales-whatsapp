@@ -14,7 +14,7 @@ const StyledTabs = withStyles(theme => ({
     "& > div": {
       maxWidth: 30,
       width: "50%",
-      backgroundColor: theme.palette.secondary.main
+      backgroundColor: theme.palette.primary.main
     }
   }
 }))(props => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1)
   },
   demo2: {
-    backgroundColor: "#fff",
+    backgroundColor: theme.palette.background.default,
     position: "sticky",
     top: 0,
     left: 0,
