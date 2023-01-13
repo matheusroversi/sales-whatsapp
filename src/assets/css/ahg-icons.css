@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "ahg-icons";
+  src: url("../fonts/ahg-icons.eot?ad36caf67b8be8f8d576166c1be6b1d1?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/ahg-icons.woff2?ad36caf67b8be8f8d576166c1be6b1d1")
+      format("woff2"),
+    url("../fonts/ahg-icons.woff?ad36caf67b8be8f8d576166c1be6b1d1")
+      format("woff"),
+    url("../fonts/ahg-icons.ttf?ad36caf67b8be8f8d576166c1be6b1d1")
+      format("truetype"),
+    url("../fonts/ahg-icons.svg?ad36caf67b8be8f8d576166c1be6b1d1#ahg-icons")
+      format("svg");
+}
+
+i[class^="ahg-icn-"]:before,
+i[class*=" ahg-icn-"]:before {
+  font-family: ahg-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ahg-icn-access-time:before {
+  content: "\f101";
+}
+.ahg-icn-add-circle:before {
+  content: "\f102";
+}
+.ahg-icn-ah-business-management:before {
+  content: "\f103";
+}
+.ahg-icn-ah-employee:before {
+  content: "\f104";
+}
+.ahg-icn-ah-superadmin:before {
+  content: "\f105";
+}
+.ahg-icn-ah-ticket-gate:before {
+  content: "\f106";
+}
+.ahg-icn-apps:before {
+  content: "\f107";
+}
+.ahg-icn-assessment:before {
+  content: "\f108";
+}
+.ahg-icn-assignment-turned-in:before {
+  content: "\f109";
+}
+.ahg-icn-attach-money:before {
+  content: "\f10a";
+}
+.ahg-icn-block:before {
+  content: "\f10b";
+}
+.ahg-icn-broken-image:before {
+  content: "\f10c";
+}
+.ahg-icn-business-groups:before {
+  content: "\f10d";
+}
+.ahg-icn-chat-bubble:before {
+  content: "\f10e";
+}
+.ahg-icn-class:before {
+  content: "\f10f";
+}
+.ahg-icn-credit-card:before {
+  content: "\f110";
+}
+.ahg-icn-dashboard:before {
+  content: "\f111";
+}
+.ahg-icn-date-range:before {
+  content: "\f112";
+}
+.ahg-icn-description:before {
+  content: "\f113";
+}
+.ahg-icn-desktop-windows:before {
+  content: "\f114";
+}
+.ahg-icn-doc-generator:before {
+  content: "\f115";
+}
+.ahg-icn-domain:before {
+  content: "\f116";
+}
+.ahg-icn-entry:before {
+  content: "\f117";
+}
+.ahg-icn-exception:before {
+  content: "\f118";
+}
+.ahg-icn-exit:before {
+  content: "\f119";
+}
+.ahg-icn-export:before {
+  content: "\f11a";
+}
+.ahg-icn-fingerprint:before {
+  content: "\f11b";
+}
+.ahg-icn-flight-takeoff:before {
+  content: "\f11c";
+}
+.ahg-icn-get-app:before {
+  content: "\f11d";
+}
+.ahg-icn-help:before {
+  content: "\f11e";
+}
+.ahg-icn-history:before {
+  content: "\f11f";
+}
+.ahg-icn-import-from-device:before {
+  content: "\f120";
+}
+.ahg-icn-import:before {
+  content: "\f121";
+}
+.ahg-icn-info:before {
+  content: "\f122";
+}
+.ahg-icn-keyboard-arrow-down:before {
+  content: "\f123";
+}
+.ahg-icn-keyboard-arrow-left:before {
+  content: "\f124";
+}
+.ahg-icn-keyboard-arrow-right:before {
+  content: "\f125";
+}
+.ahg-icn-label:before {
+  content: "\f126";
+}
+.ahg-icn-list:before {
+  content: "\f127";
+}
+.ahg-icn-livemaps:before {
+  content: "\f128";
+}
+.ahg-icn-local-atm:before {
+  content: "\f129";
+}
+.ahg-icn-local-library:before {
+  content: "\f12a";
+}
+.ahg-icn-location-city:before {
+  content: "\f12b";
+}
+.ahg-icn-login:before {
+  content: "\f12c";
+}
+.ahg-icn-logout:before {
+  content: "\f12d";
+}
+.ahg-icn-map:before {
+  content: "\f12e";
+}
+.ahg-icn-monitoring:before {
+  content: "\f12f";
+}
+.ahg-icn-overtime:before {
+  content: "\f130";
+}
+.ahg-icn-people:before {
+  content: "\f131";
+}
+.ahg-icn-person:before {
+  content: "\f132";
+}
+.ahg-icn-print:before {
+  content: "\f133";
+}
+.ahg-icn-receipt:before {
+  content: "\f134";
+}
+.ahg-icn-recent-actors:before {
+  content: "\f135";
+}
+.ahg-icn-remove-circle:before {
+  content: "\f136";
+}
+.ahg-icn-rep:before {
+  content: "\f137";
+}
+.ahg-icn-schedule:before {
+  content: "\f138";
+}
+.ahg-icn-settings:before {
+  content: "\f139";
+}
+.ahg-icn-shift:before {
+  content: "\f13a";
+}
+.ahg-icn-speaker-phone:before {
+  content: "\f13b";
+}
+.ahg-icn-swap-horiz:before {
+  content: "\f13c";
+}
+.ahg-icn-timesheet:before {
+  content: "\f13d";
+}
+.ahg-icn-today:before {
+  content: "\f13e";
+}
+.ahg-icn-transfer-station:before {
+  content: "\f13f";
+}
+.ahg-icn-trending-up:before {
+  content: "\f140";
+}
+.ahg-icn-visibility:before {
+  content: "\f141";
+}

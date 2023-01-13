@@ -68,7 +68,7 @@ const MenuPage = props => {
         text: category.label,
         component: (
           <Section>
-            <CategoryLabel>{category.label}</CategoryLabel>
+            <CategoryLabel theme={theme}>{category.label}</CategoryLabel>
             <MenuCard
               categoryId={category.id}
               products={products.filter(item =>

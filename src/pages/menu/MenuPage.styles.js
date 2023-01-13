@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import Theme from "../../Themes";
 
-console.log(Theme.light);
-
 export const CategoryLabel = styled.span`
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: ${Theme.light.palette.secondary.main};
-  margin-left: ${Theme.light.spacing(1)}px;
+  ${({ theme }) => css`
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: ${Theme[theme].palette.secondary.main};
+    margin-left: ${Theme[theme].spacing(1)}px;
+  `}
 `;
 
 export const Content = styled.div`
